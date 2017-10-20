@@ -1,26 +1,33 @@
-package com.bliss.monitoring.dto;
+package com.bliss.monitoring.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.jtransfo.DomainClass;
-
-import lombok.Data;
-
-@Data
-@DomainClass("com.bliss.monitoring.model.Machine")
+@Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class MachineDto {
-
-	private int idMachine;
-	private int idSalle;
-	private String nomMachine;
-	private String urlMachine;
-	private String ram;
+public class Machine{
 	
+	@Id
+	@GeneratedValue
+
+	private Integer idMachine;
+	@Column(nullable = false)
+	private int idSalle;
+	@Column(nullable = false)
+	private String nomMachine;
+	@Column(nullable = false)
+	private String urlMachine;
+	@Column(nullable = false)
+	private String ram;
+	@Column(nullable = false)
 	private boolean etat;
+	@Column(nullable = true)
 	private String message;
 	public int getIdMachine() {
 		return idMachine;
@@ -64,7 +71,7 @@ public class MachineDto {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public MachineDto(int idMachine, int idSalle, String nomMachine, String urlMachine, String ram, boolean etat,
+	public Machine(int idMachine, int idSalle, String nomMachine, String urlMachine, String ram, boolean etat,
 			String message) {
 		super();
 		this.idMachine = idMachine;
@@ -75,7 +82,7 @@ public class MachineDto {
 		this.etat = etat;
 		this.message = message;
 	}
-	public MachineDto() {
+	public Machine() {
 
 	}
 	

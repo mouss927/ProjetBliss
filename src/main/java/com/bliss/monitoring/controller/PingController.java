@@ -33,7 +33,17 @@ public class PingController {
 	{
 		Machine machine = (Machine) jTransfo.convert(machineDto);
 		if(null != machine)
-		{
+		{	
+			String url = machine.getUrlMachine();
+			Machine m = machineDao.findByUrlMachine(url);
+			if(m != null) {
+				machine.setIdMachine(m.getIdMachine());
+				machine.setIdSalle(m.getIdSalle());
+			}
+			else {
+				machine.setIdSalle(1);
+			}
+			
 			machineDao.save(machine);
 			return "OK";
 		}

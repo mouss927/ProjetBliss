@@ -29,6 +29,15 @@ public class Machine{
 	private boolean etat;
 	@Column(nullable = true)
 	private String message;
+	@Column(nullable = false)
+	private String disque;
+	@Column(nullable = false)
+	private String dateDernierRecut;
+	
+	
+	
+	
+	
 	public int getIdMachine() {
 		return idMachine;
 	}
@@ -71,8 +80,24 @@ public class Machine{
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public Machine(int idMachine, int idSalle, String nomMachine, String urlMachine, String ram, boolean etat,
-			String message) {
+	public String getDisque() {
+		return disque;
+	}
+	public void setDisque(String disque) {
+		this.disque = disque;
+	}
+	public String getDateDernierRecut() {
+		return dateDernierRecut;
+	}
+	public void setDateDernierRecut(String dateDernierRecut) {
+		this.dateDernierRecut = dateDernierRecut;
+	}
+	public void setIdMachine(Integer idMachine) {
+		this.idMachine = idMachine;
+	}
+
+	public Machine(Integer idMachine, int idSalle, String nomMachine, String urlMachine, String ram, boolean etat,
+			String message, String disque, String dateDernierRecut) {
 		super();
 		this.idMachine = idMachine;
 		this.idSalle = idSalle;
@@ -81,6 +106,8 @@ public class Machine{
 		this.ram = ram;
 		this.etat = etat;
 		this.message = message;
+		this.disque = disque;
+		this.dateDernierRecut = dateDernierRecut;
 	}
 	public Machine() {
 

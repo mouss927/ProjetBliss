@@ -19,9 +19,11 @@ public class MachineDto {
 	private String nomMachine;
 	private String urlMachine;
 	private String ram;
-	
 	private boolean etat;
 	private String message;
+	private String dateDernierRecut;
+	private String disque;
+	
 	public int getIdMachine() {
 		return idMachine;
 	}
@@ -64,8 +66,21 @@ public class MachineDto {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	public String getDateDernierRecut() {
+		return dateDernierRecut;
+	}
+	public void setDateDernierRecut(String dateDernierRecut) {
+		this.dateDernierRecut = dateDernierRecut;
+	}
+	public String getDisque() {
+		return disque;
+	}
+	public void setDisque(String disque) {
+		this.disque = disque;
+	}
+	
 	public MachineDto(int idMachine, int idSalle, String nomMachine, String urlMachine, String ram, boolean etat,
-			String message) {
+			String message, String dateDernierRecut, String disque) {
 		super();
 		this.idMachine = idMachine;
 		this.idSalle = idSalle;
@@ -74,6 +89,8 @@ public class MachineDto {
 		this.ram = ram;
 		this.etat = etat;
 		this.message = message;
+		this.dateDernierRecut = dateDernierRecut;
+		this.disque = disque;
 	}
 	public MachineDto() {
 

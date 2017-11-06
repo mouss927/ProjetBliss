@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
-@Service
+@Service //l'annotation @Service, cela permet d'utiliser l'auto détection. 
 public class PingService {
 	
 	//variables d'instance	

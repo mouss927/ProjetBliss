@@ -9,11 +9,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 @SpringBootApplication
 @EnableJpaRepositories("com.bliss.monitoring.dao")
 @EntityScan("com.bliss.monitoring.model")
 @ComponentScan("com.bliss.monitoring")
+@EnableResourceServer
 public class MonitoringToolsBoApplication {
 
 	public static void main(String[] args) {

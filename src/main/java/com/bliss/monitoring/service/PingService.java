@@ -7,10 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/*L'annotation @Transactional permet de délimiter une transaction (entre le début et la fin de la méthode) et de définir le comportement transactionnel d'une méthode.
+
+    propagation : précise le mode de propagation de la transaction grâce à une énumération de type Propagation. La valeur par défaut est Propagation.REQUIRED
+    readonly : booléen qui précise de façon informative au système de gestion des transactions sous-jacent si la transaction est en lecture seule (true) ou si elle effectue des mises à jour (false)
+    isolation : précise le niveau d'isolation de la transaction grâce à une énumération de type Isolation. La valeur par défaut est Isolation.DEFAULT
+    timeout : entier qui précise le timeout de la transaction
+
+*/
 @Transactional
-@Service
+@Service //l'annotation @Service, cela permet d'utiliser l'auto détection. 
 public class PingService {
 	
+	//variables d'instance	
 	@Autowired
 	JTransfo jTransfo;
 	

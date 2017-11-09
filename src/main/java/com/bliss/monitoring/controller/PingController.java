@@ -37,6 +37,12 @@ public class PingController {
 	@CrossOrigin(origins = "*")
 	public String addNewUrl(@RequestBody MachineDto machineDto)
 	{
+		Machine machineRetour = machineDao.findByIdMachine(machineDto.getIdMachine());
+			if(machineRetour!= null){
+				machineDto.setIdSalle(machineRetour.getIdSalle());
+			}
+			
+		
 		Machine machine = (Machine) jTransfo.convert(machineDto);
 		
 		if(null != machine)
@@ -78,6 +84,7 @@ public class PingController {
 	}
 	
 	@RequestMapping(value = "/token{login}", method = RequestMethod.GET)
+	@CrossOrigin(origins = "*")
 	public MachineDto informationList(@PathVariable String login)
 	{
 		MachineDto machine = new MachineDto();
@@ -111,6 +118,7 @@ public class PingController {
 	}
 	
 	@RequestMapping(value = "/getMachinesBySalle", method = RequestMethod.GET)
+	@CrossOrigin(origins = "*")
 	public List<Machine> getMachinesBySalle(@RequestParam int idSalle)
 	{
 		return machineDao.findByIdSalle(idSalle);

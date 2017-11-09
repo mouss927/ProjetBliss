@@ -1,4 +1,4 @@
-package com.bliss.monitoring.dao;
+package com.bliss.monitoring.dto;
 
 
 import java.util.ArrayList;

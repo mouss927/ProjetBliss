@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bliss.monitoring.dao.MachineDao;
-import com.bliss.monitoring.dao.MachineSalleDto;
 import com.bliss.monitoring.dto.MachineDto;
+import com.bliss.monitoring.dto.MachineSalleDto;
 import com.bliss.monitoring.model.Machine;
 import com.bliss.monitoring.service.PingService;
 

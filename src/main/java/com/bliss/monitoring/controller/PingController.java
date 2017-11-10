@@ -1,6 +1,5 @@
 package com.bliss.monitoring.controller;
 
-import java.io.Console;
 import java.util.List;
 
 import org.jtransfo.JTransfo;
@@ -13,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bliss.monitoring.dao.HistoriqueDao;
 import com.bliss.monitoring.dao.MachineDao;
 import com.bliss.monitoring.dto.MachineDto;
 import com.bliss.monitoring.dto.MachineSalleDto;
+import com.bliss.monitoring.model.Historique;
 import com.bliss.monitoring.model.Machine;
 import com.bliss.monitoring.service.PingService;
 
@@ -24,6 +25,9 @@ public class PingController {
 
 	@Autowired
 	MachineDao machineDao;
+	
+	@Autowired
+	HistoriqueDao historiqueDao;
 	
 	@Autowired
 	JTransfo jTransfo;
@@ -59,7 +63,14 @@ public class PingController {
 			}
 			
 			machineDao.save(machine);
-		
+			if(!machineDto.isEtat()){
+			Historique h = new Historique();
+			h.setIdMachine(machine.getIdMachine());
+			h.setMessage(machine.getMessage());
+			h.setDate(machine.getDateDernierRecut());
+			h.setNomMachine(machine.getNomMachine());
+			historiqueDao.save(h);
+			}
 			return "OK";
 		}
 		

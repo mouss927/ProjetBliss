@@ -16,23 +16,23 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan("com.bliss.monitoring")
 public class MonitoringToolsBoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MonitoringToolsBoApplication.class, args);
-	}
-	
-	@Bean
-	@Scope("singleton")
-	public JTransfoSpringFactory jTransfoFactory() {
-							
-		JTransfoSpringFactory c = new JTransfoSpringFactory();
-		
-		return c;
-	}
-	
-	@Bean
-	@Scope("singleton")
-	public JTransfo jTransfo() {
-		
-		return this.jTransfoFactory().get();
-	} 
+    public static void main(String[] args) {
+        SpringApplication.run(MonitoringToolsBoApplication.class, args);
+    }
+
+    @Bean
+    @Scope("singleton")
+    public JTransfoSpringFactory jTransfoFactory() {
+
+        JTransfoSpringFactory c = new JTransfoSpringFactory();
+
+        return c;
+    }
+
+    @Bean
+    @Scope("singleton")
+    public JTransfo jTransfo() {
+
+        return this.jTransfoFactory().get();
+    }
 }
